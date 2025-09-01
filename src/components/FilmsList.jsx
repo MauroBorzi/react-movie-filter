@@ -49,7 +49,7 @@ const FilmsList = () => {
     <div className="container">
       <div className="row">
         <div className="col-6 mt-3">
-          <label for="filteredFilms" class="form-label"><strong>Cerca Film per GENERE</strong></label>
+          <label className="form-label"><strong>Cerca Film per GENERE</strong></label>
           <select className="form-select" aria-label="Select films" value={search} onChange={e => setSearch(e.target.value)}>
             <option value="">Seleziona categoria film</option>
             <option value="Fantascienza">Fantascienza</option>
@@ -59,7 +59,7 @@ const FilmsList = () => {
           </select>
         </div>
         <div className="col-6 mt-3">
-          <label for="filteredFilms" class="form-label"><strong>Cerca Film per TITOLO</strong></label>
+          <label className="form-label"><strong>Cerca Film per TITOLO</strong></label>
           <input
             type="text"
             className="form-control"
@@ -81,7 +81,7 @@ const FilmsList = () => {
         </div>
         <div className="col-12 mt-5">
           <form onSubmit={addFilm}>
-            <label for="NewFilms" class="form-label"><strong>Inserisci NUOVO film</strong></label>
+            <label className="form-label"><strong>Inserisci NUOVO film</strong></label>
             <input
               type="text"
               className="form-control"
