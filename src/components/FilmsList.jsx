@@ -11,6 +11,7 @@ const filmsList = [
 
 const FilmsList = () => {
   const [films, setFilms] = useState(filmsList)
+  const [newFilms, setNewFilms] = useState("")
   const [search, setSearch] = useState("")
   const [searchs, setSearchs] = useState("")
   const [filteredFilms, setFilteredFilms] = useState(films)
@@ -32,6 +33,17 @@ const FilmsList = () => {
     setFilteredFilms(filteredFilm)
 
   }, [searchs])
+
+  const addFilm = e => {
+    e.preventDefault()
+
+    let obj = {
+      title: newFilms,
+      genre: 'Fantascienza'
+    }
+    setFilms([...films, obj])
+    setNewFilms("")
+  }
 
   return (
     <div className="container">
@@ -66,6 +78,18 @@ const FilmsList = () => {
               )
             })}
           </ol>
+        </div>
+        <div className="col-12 mt-5">
+          <form onSubmit={addFilm}>
+            <label for="NewFilms" class="form-label"><strong>Inserisci NUOVO film</strong></label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Inserisci nuovo film"
+              value={newFilms}
+              onChange={e => setNewFilms(e.target.value)}
+            />
+          </form>
         </div>
       </div>
     </div>
