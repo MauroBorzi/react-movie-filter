@@ -18,7 +18,9 @@ const FilmsList = () => {
     const filteredFilm = films.filter(film => {
       return film.genre.toLowerCase().includes(search.toLowerCase())
     })
+
     setFilteredFilms(filteredFilm)
+
   }, [search])
 
   return (
@@ -26,7 +28,7 @@ const FilmsList = () => {
       <div className="row">
         <div className="col-12 mt-3">
           <select className="form-select" aria-label="Select films" value={search} onChange={e => setSearch(e.target.value)}>
-            <option selected>Seleziona categoria film</option>
+            <option value="">Seleziona categoria film</option>
             <option value="Fantascienza">Fantascienza</option>
             <option value="Thriller">Thriller</option>
             <option value="Romantico">Romantico</option>
