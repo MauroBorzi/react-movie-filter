@@ -42,6 +42,7 @@ const FilmsList = () => {
       genre: 'Fantascienza'
     }
     setFilms([...films, obj])
+    setFilteredFilms([...filteredFilms, obj])
     setNewFilms("")
   }
 
