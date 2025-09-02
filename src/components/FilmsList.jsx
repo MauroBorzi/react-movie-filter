@@ -9,6 +9,8 @@ const filmsList = [
   { title: 'Pulp Fiction', genre: 'Thriller' },
 ]
 
+
+
 const FilmsList = () => {
   const [films, setFilms] = useState(filmsList)
   const [newFilms, setNewFilms] = useState("")
@@ -16,23 +18,27 @@ const FilmsList = () => {
   const [searchs, setSearchs] = useState("")
   const [filteredFilms, setFilteredFilms] = useState(films)
 
+
+
   useEffect(() => {
-    const filteredFilm = films.filter(film => {
-      return film.genre.toLowerCase().includes(search.toLowerCase())
-    })
+    let filteredFilm = films
+    if (search) {
+      filteredFilm = filteredFilm.filter(film => {
+        return film.genre.toLowerCase().includes(search.toLowerCase())
+      })
+    }
+
+    if (searchs) {
+      filteredFilm = filteredFilm.filter(film => {
+        return film.title.toLowerCase().includes(searchs.toLowerCase())
+      })
+    }
 
     setFilteredFilms(filteredFilm)
 
-  }, [search])
+  }, [search, searchs])
 
-  useEffect(() => {
-    const filteredFilm = films.filter(film => {
-      return film.title.toLowerCase().includes(searchs.toLowerCase())
-    })
 
-    setFilteredFilms(filteredFilm)
-
-  }, [searchs])
 
   const addFilm = e => {
     e.preventDefault()
@@ -45,6 +51,8 @@ const FilmsList = () => {
     setFilteredFilms([...filteredFilms, obj])
     setNewFilms("")
   }
+
+
 
   return (
     <div className="container">
@@ -96,5 +104,7 @@ const FilmsList = () => {
     </div>
   )
 }
+
+
 
 export default FilmsList
